@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/x-icon" href="/static/images/favicon.ico">
+  <link rel="stylesheet" href="/static/styles/image.css">
+  <title>image</title>
+</head>
+
+<body>
+  <div class="backgroundimg">
+    <img src="/static/images/background2.jpg">
+  </div>
+  <div class="navbar">
+    <a href="/"><img src="/static/images/logo2.png" class="logo"></a>
+    <ul>
+      <li><a href="/home">home</a></li>
+      <li><a href="#">How To Use</a></li>
+      <li><a href="/aboutus">About us</a></li>
+    </ul>
+  </div>
+{% if filename %}
+  <div>
+    <img src="{{ url_for('static', filename = 'result.jpg') }}" class="result" width="30%">
+  </div>
+{% else %}
+  <img src="/static/images/img1.png" width="400px" height="400px" class="beforeIMG">
+{% endif %}
+  <form action="/image" method="post" enctype="multipart/form-data" class="form">
+    <label> <span>Upload image</span>
+      <input type="file" size="60" name="file">
+    </label>
+    <input type="submit" value="Submit" class="submitbtn">
+  </form>
+</body>
+
+</html>
